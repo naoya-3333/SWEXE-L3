@@ -1,0 +1,17 @@
+<% @tweets.each do |tweet| %>
+    <%= tweet.message %>
+    <%= image_tag "/get_image/#{tweet.id}",width: '10%', height: '10%'%>
+    <bin hidden><%= t1 = Time.current %>
+    <%= sabun = t1 - tweet.tdate  %>
+    <%= sabun = sabun / 60 %> </bin>
+    <%= sabun.floor %> 分前
+    <%= link_to '表示' ,"/tweets/#{tweet.id}" %>
+    <%= link_to '削除' ,"/tweets/#{tweet.id}",method: :delete %>
+    <%= link_to '編集',"/tweets/#{tweet.id}/edit" %>
+<br>
+
+    
+     <% end %>
+     
+     <p><%= link_to '新規投稿','/tweets/new' %></p>
+    

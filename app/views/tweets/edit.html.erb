@@ -1,0 +1,5 @@
+<%= form_for @tweet , url: {action: :update} do |f| %>
+<%= f.text_area :message,size:"30x10" %>
+<%= f.file_field :file %>
+<%= f.submit '更新'  %>
+<% end %>
