@@ -8,10 +8,17 @@ class TweetsController < ApplicationController
   end
   
   def create
-    @tweet = Tweet.new(message: params[:tweet][:message], tdate: params[:tweet][:tdate],file: params[:tweet][:file].read)
+    logger.debug "----------"+params[:tweet][:message]+"--------------"
+    
+    
+    if params[:tweet][:file]
+      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current,file: params[:tweet][:file].read)
+    else
+      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current)
+    end
     
     if @tweet.save
-    redirect_to'/'
+    redirect_to tweets_path
     else
       render 'new'
     end
@@ -25,7 +32,7 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy
-    redirect_to'/'
+    redirect_to tweets_path
   end
   
   def edit
@@ -33,10 +40,13 @@ class TweetsController < ApplicationController
   end
   
   def update
-    @tweet = Tweet.find(params[:id])
-    @tweet.update(message: params[:tweet][:message],file: params[:tweet][:file].read)
+    if params[:tweet][:file]
+      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current,file: params[:tweet][:file].read)
+    else
+      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current)
+    end
     if @tweet.save
-    redirect_to'/'
+    redirect_to tweets_path
     else
       render 'new'
     end

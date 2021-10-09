@@ -10,6 +10,47 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree.
  *= require_self
  */
+
+body{
+    background-color: #e0ffff;
+}
+#sidebar {
+    position: sticky;
+    top: 0;
+    width: 350px;
+    float: left;
+}
+
+
+
+#PageSub p{
+    text-decoration: none;
+   text-align: right;
+}
+
+#content{
+    width:700px;
+    min-height:300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content p{
+        width:auto;
+        min-height: 300px;
+    margin-top: 1.5%; 
+    margin-bottom: 1.5%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+
+
+#header_top{
+    text-align: center;
+}
