@@ -9,8 +9,6 @@ class TweetsController < ApplicationController
   
   def create
     logger.debug "----------"+params[:tweet][:message]+"--------------"
-    
-    
     if params[:tweet][:file]
       @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current,file: params[:tweet][:file].read)
     else
@@ -40,16 +38,22 @@ class TweetsController < ApplicationController
   end
   
   def update
+    @tweet = Tweet.find(params[:id])
     if params[:tweet][:file]
-      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current,file: params[:tweet][:file].read)
+      if @tweet.update(message: params[:tweet][:message], tdate: Time.current,file: params[:tweet][:file].read)
+        redirect_to tweets_path
+      else
+        render'edit'
+      end
     else
-      @tweet = Tweet.new(message: params[:tweet][:message], tdate: Time.current)
+      if @tweet.update(message: params[:tweet][:message], tdate: Time.current)
+        redirect_to tweets_path
+      else
+        render'edit'
+      end
     end
-    if @tweet.save
-    redirect_to tweets_path
-    else
-      render 'new'
-    end
+    
+   
   end
   
   def show
