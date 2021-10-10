@@ -25,27 +25,24 @@ body{
     float: left;
 }
 
-#PageSub p{
+#sidebar p{
     text-align: right;
 }
 
 #content{
-    width:700px;
-    min-height:300px;
+    max-width:700px;
+    min-width:100px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #content p{
-        width:auto;
-        min-height: 300px;
     margin-top: 1.5%; 
     margin-bottom: 1.5%;
     background-color: #ffffff;
     border-radius: 15px;
     text-align: center;
 }
-
 #header_top{
     text-align: center;
 }
@@ -60,19 +57,22 @@ body{
     text-decoration: none;
 }
 
-#PageSub p a{
+#sidebar p a{
     text-decoration: none;
     color: #000;
 }
 
 #header_top p a:hover{
      background-color: #99CCFF;
+    color: white;
 }
 
 #content p a:hover{
      background-color: #99CCFF;
+    color: white;
 }
 
-#PageSub p a:hover{
+#sidebar p a:hover{
     background-color: #99CCFF;
+    color: white;
 }
