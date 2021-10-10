@@ -16,6 +16,7 @@
 
 body{
     background-color: #e0ffff;
+    font-family: Helvetica, sans-serif;
 }
 #sidebar {
     position: sticky;
@@ -24,11 +25,8 @@ body{
     float: left;
 }
 
-
-
 #PageSub p{
-    text-decoration: none;
-   text-align: right;
+    text-align: right;
 }
 
 #content{
@@ -48,9 +46,33 @@ body{
     text-align: center;
 }
 
-
-
-
 #header_top{
     text-align: center;
+}
+
+#header_top p a{
+    color: #000;
+    text-decoration: none;
+}
+
+#content p a{
+    color: #000;
+    text-decoration: none;
+}
+
+#PageSub p a{
+    text-decoration: none;
+    color: #000;
+}
+
+#header_top p a:hover{
+     background-color: #99CCFF;
+}
+
+#content p a:hover{
+     background-color: #99CCFF;
+}
+
+#PageSub p a:hover{
+    background-color: #99CCFF;
 }

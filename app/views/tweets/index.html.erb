@@ -1,22 +1,11 @@
 <% @tweets.each do |tweet| %>
         <br>
         <p>
-            
-            <p2>
-                <%= tweet.message %> <%= ((Time.current - tweet.tdate) / 60).to_i.to_s + "分前" %> <br> 
-            </p2>
-            
-            <p3>
+                <%= tweet.message %> <br> 
                 <%= image_tag "/get_image/#{tweet.id}",width: '50%', height: '50%'%><br>
-            </p3>
-            
-            <p1>
+                <%= ((Time.current - tweet.tdate) / 60).to_i.to_s + "分前" %><br>
                 <%= link_to '表示' ,"/tweets/#{tweet.id}" %>
                 <%= link_to '削除' ,"/tweets/#{tweet.id}",method: :delete %>
-                <%= link_to '編集',"/tweets/#{tweet.id}/edit" %> 
-            </p1>
-            <br>
+                <%= link_to '編集',"/tweets/#{tweet.id}/edit" %> <br>
         </p>
-    
          <% end %>
-         
